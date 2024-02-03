@@ -6,22 +6,22 @@ import org.openqa.selenium.WebElement;
 
 import com.Assignment.Utils.ProxyDriver;
 
-public class GoogleSearch extends SearchPage {
+public class GoogleSearchPage extends SearchPage {
 
 	private final By searchInputField = By.cssSelector("textarea[name='q']");
-	private final By firstResult = By.cssSelector("h3");
+	private final By firstResult = By.cssSelector("div#rso h3,div.card-section span em");
 
-	public GoogleSearch(WebDriver wd, boolean waitForPageToLoad) {
+	public GoogleSearchPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}
-	
+
 	@Override
-	public GoogleSearch get() {
-		return (GoogleSearch) super.get();
+	public GoogleSearchPage get() {
+		return (GoogleSearchPage) super.get();
 	}
 
 	@Override
-	public String getFirstSearchResult(String searchTerm) {
+	public String getSearchResult(String searchTerm) {
 		performSearch(searchTerm);
 		return ((ProxyDriver) wd).getText(firstResult);
 	}

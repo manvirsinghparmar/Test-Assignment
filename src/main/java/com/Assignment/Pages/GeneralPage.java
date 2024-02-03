@@ -12,6 +12,12 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/*
+ * This class makes use of Loadable component
+ * class of selenium to ensure that page has loaded before 
+ * any selenium action is performed
+ */
+
 public abstract class GeneralPage extends LoadableComponent<GeneralPage> {
 
 	private static final int DEFAULT_TIME_TO_WAIT_FOR_PAGE = 50;
@@ -50,6 +56,11 @@ public abstract class GeneralPage extends LoadableComponent<GeneralPage> {
 
 	}
 
+	/*
+	 * Method to confirm if the URL on the loaded page is as per expectation
+	 * This ensure that proper page has loaded.
+	 * 
+	 */
 	protected boolean urlContains(String url) {
 		try {
 			String pageUrl = getPageURL();
@@ -82,6 +93,8 @@ public abstract class GeneralPage extends LoadableComponent<GeneralPage> {
 
 	}
 
+	// Method to ensure document/Web page is in ready state before selenium
+	// interacts with it
 	public void waitForDocumentCompleteState(int secondsToWait) {
 		new WebDriverWait(wd, secondsToWait).until((ExpectedCondition<Boolean>) driver -> {
 			while (true) {

@@ -15,6 +15,6 @@ public abstract class SearchPage extends Page {
 		}
 	}
 
-	public abstract String getFirstSearchResult(String query);
+	public abstract String getSearchResult(String query);
 
 }

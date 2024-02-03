@@ -5,16 +5,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.Assignment.base.TestBase;
 
@@ -45,21 +40,21 @@ public class Utils extends TestBase {
 		String emailID = "Manvir" + email + "@gmail.com";
 		return emailID;
 	}
-	
+
 	public static int generateRandomInt(int length) {
-		Random random=new Random();
+		Random random = new Random();
 		return random.nextInt(length);
 	}
-	
+
 	public static String generateRandomString(int length) {
-		
-		return RandomStringUtils.random(length);
+
+		return RandomStringUtils.randomAlphabetic(length);
 	}
 
 	public static Date generateRandomDate() {
 		return new Date();
 	}
-	
+
 	public static String generateRandomPassword() {
 		String randomStringForPassword = RandomStringUtils.randomNumeric(3);
 		String password = "Manager@" + randomStringForPassword;
